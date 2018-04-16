@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:orientation="horizontal"
+    app:layout_gravity="center"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        app:columnCount="3"
+        app:rowCount="3"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="227dp">
+
+        <Button
+            android:id="@+id/tile01"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="0"
+            app:layout_row="0"
+            tools:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/tile02"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="1"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/tile03"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="2"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/tile04"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/tile05"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/tile06"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="2"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/tile07"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/tile08"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/tile09"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="tileClicked"
+            android:textColor="@color/colorAccent"
+            app:layout_column="2"
+            app:layout_row="2" />
+
+    </android.support.v7.widget.GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/turn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Player X, you may start!" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>
