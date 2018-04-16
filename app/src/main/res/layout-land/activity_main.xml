@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
+    android:background="@color/colorBackground"
     android:orientation="horizontal"
     app:layout_gravity="center"
     tools:context=".MainActivity">
@@ -25,6 +26,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="0"
             app:layout_row="0"
             tools:textColor="@color/colorPrimaryDark" />
@@ -35,6 +37,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="1"
             app:layout_row="0" />
 
@@ -44,6 +47,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="2"
             app:layout_row="0" />
 
@@ -53,6 +57,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="0"
             app:layout_row="1" />
 
@@ -62,6 +67,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="1"
             app:layout_row="1" />
 
@@ -71,6 +77,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="2"
             app:layout_row="1" />
 
@@ -80,6 +87,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="0"
             app:layout_row="2" />
 
@@ -89,6 +97,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="1"
             app:layout_row="2" />
 
@@ -98,6 +107,7 @@
             android:layout_height="100dp"
             android:onClick="tileClicked"
             android:textColor="@color/colorAccent"
+            android:textSize="45sp"
             app:layout_column="2"
             app:layout_row="2" />
 
@@ -109,22 +119,42 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/turn"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Player X, you may start!" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center" />
+            <TextView
+                android:id="@+id/turn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Player X, you may start!"
+                android:textColor="@color/colorPrimary"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/turn"
+                app:layout_constraintVertical_bias="0.100000024" />
+        </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
 </LinearLayout>

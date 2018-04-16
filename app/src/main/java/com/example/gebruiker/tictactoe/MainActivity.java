@@ -10,11 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    // Initiate objects that are used throughout the game
     Game game;
     Button[] tilesArray = new Button[9];
     TextView turn;
     TextView message;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Displays the tile's state in the UI according to board
     public void setTile(Tile tile, Button button){
-
-
-        message = (TextView)findViewById(R.id.message);
         switch(tile) {
             case CROSS:
                 button.setText("X");
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 message.setText("");
                 break;
             case INVALID:
-                message.setText("INVALID");
+                message.setText("Hey, that's not a valid move!");
                 break;
             default:
                 button.setText("");
@@ -84,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Save state upon leaving the game
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
@@ -120,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
         return(super.onOptionsItemSelected(item));
     }
 
+    // Display the right new tile if tile is clicked
+    // And display who's turn it is
     public void tileClicked(View view) {
        int id = view.getId();
        Tile tile;
