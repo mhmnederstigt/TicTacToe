@@ -1,6 +1,9 @@
 package com.example.gebruiker.tictactoe;
 
+import android.widget.Button;
+
 import java.io.Serializable;
+import java.util.Random;
 
 public class Game implements Serializable {
     final private int BOARD_SIZE = 3;
@@ -43,4 +46,32 @@ public class Game implements Serializable {
            return Tile.INVALID;
        }
     }
+
+    public int[] randMove() {
+        int[] rowCol  = {0,0};
+        int random = (int) (Math.random() * 8);
+        int count = 0;
+        Boolean choose = false;
+
+        for(int i=0; i<BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                count += 1;
+                if (count == random) {
+                    if (board[i][j] == Tile.BLANK) {
+                        rowCol[0] = i;
+                        rowCol[1] = j;
+                    } else {
+                        rowCol = randMove();
+                    }
+                }
+            }
+        }
+
+
+
+        return rowCol;
+  //      return board[(int)Math.random() * 3][(int)Math.random() * 3];
+
+    }
+
 }
