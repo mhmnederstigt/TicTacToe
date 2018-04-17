@@ -10,111 +10,138 @@
     app:layout_gravity="center"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        app:columnCount="3"
-        app:rowCount="3"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="227dp">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:padding="0dp">
 
-        <Button
-            android:id="@+id/tile01"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="0"
-            app:layout_row="0"
-            tools:textColor="@color/colorPrimaryDark" />
+        <ImageView
+            android:id="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@+id/gridLayout3"
+            app:layout_constraintEnd_toEndOf="@+id/gridLayout3"
+            app:layout_constraintStart_toStartOf="@+id/gridLayout3"
+            app:layout_constraintTop_toTopOf="@+id/gridLayout3"
+            app:srcCompat="@drawable/rect4202" />
 
-        <Button
-            android:id="@+id/tile02"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="1"
-            app:layout_row="0" />
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/gridLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            app:columnCount="3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rowCount="3">
 
-        <Button
-            android:id="@+id/tile03"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="2"
-            app:layout_row="0" />
+            <Button
+                android:id="@+id/tile01"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="0"
+                app:layout_row="0"
+                tools:textColor="@color/colorPrimaryDark" />
 
-        <Button
-            android:id="@+id/tile04"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="0"
-            app:layout_row="1" />
+            <Button
+                android:id="@+id/tile02"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="1"
+                app:layout_row="0" />
 
-        <Button
-            android:id="@+id/tile05"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="1"
-            app:layout_row="1" />
+            <Button
+                android:id="@+id/tile03"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="2"
+                app:layout_row="0" />
 
-        <Button
-            android:id="@+id/tile06"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="2"
-            app:layout_row="1" />
+            <Button
+                android:id="@+id/tile04"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="0"
+                app:layout_row="1" />
 
-        <Button
-            android:id="@+id/tile07"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="0"
-            app:layout_row="2" />
+            <Button
+                android:id="@+id/tile05"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="1"
+                app:layout_row="1" />
 
-        <Button
-            android:id="@+id/tile08"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="1"
-            app:layout_row="2" />
+            <Button
+                android:id="@+id/tile06"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="2"
+                app:layout_row="1" />
 
-        <Button
-            android:id="@+id/tile09"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="tileClicked"
-            android:textColor="@color/colorAccent"
-            android:textSize="45sp"
-            app:layout_column="2"
-            app:layout_row="2" />
+            <Button
+                android:id="@+id/tile07"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="0"
+                app:layout_row="2" />
 
-    </android.support.v7.widget.GridLayout>
+            <Button
+                android:id="@+id/tile08"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="1"
+                app:layout_row="2" />
+
+            <Button
+                android:id="@+id/tile09"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@null"
+                android:onClick="tileClicked"
+                android:textColor="@color/colorAccent"
+                android:textSize="45sp"
+                app:layout_column="2"
+                app:layout_row="2" />
+
+        </android.support.v7.widget.GridLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
