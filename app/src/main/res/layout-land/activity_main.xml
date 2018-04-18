@@ -10,32 +10,69 @@
     app:layout_gravity="center"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/turn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="You may start!"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            tools:layout_editor_absoluteX="463dp"
+            tools:layout_editor_absoluteY="109dp" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="506dp"
+            tools:layout_editor_absoluteY="146dp" />
+    </LinearLayout>
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_weight="1"
         android:padding="0dp">
 
         <ImageView
-            android:id="@+id/imageView"
-            app:layout_constraintBottom_toBottomOf="@+id/gridLayout3"
-            app:layout_constraintEnd_toEndOf="@+id/gridLayout3"
-            app:layout_constraintStart_toStartOf="@+id/gridLayout3"
-            app:layout_constraintTop_toTopOf="@+id/gridLayout3"
-            app:srcCompat="@drawable/rect4202" />
-
-        <android.support.v7.widget.GridLayout
-            android:id="@+id/gridLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:id="@+id/gridImage"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            app:columnCount="3"
+            app:layout_constraintBottom_toBottomOf="@+id/gridLayout"
+            app:layout_constraintEnd_toEndOf="@+id/gridLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:rowCount="3">
+            app:srcCompat="@drawable/rect4202" />
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:columnCount="3"
+            app:rowCount="3"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="0dp">
 
             <Button
                 android:id="@+id/tile01"
@@ -44,7 +81,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="0"
                 app:layout_row="0"
                 tools:textColor="@color/colorPrimaryDark" />
@@ -56,7 +93,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="1"
                 app:layout_row="0" />
 
@@ -67,7 +104,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="2"
                 app:layout_row="0" />
 
@@ -78,7 +115,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="0"
                 app:layout_row="1" />
 
@@ -89,7 +126,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="1"
                 app:layout_row="1" />
 
@@ -100,7 +137,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="2"
                 app:layout_row="1" />
 
@@ -111,7 +148,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="0"
                 app:layout_row="2" />
 
@@ -122,7 +159,7 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="1"
                 app:layout_row="2" />
 
@@ -133,55 +170,11 @@
                 android:background="@null"
                 android:onClick="tileClicked"
                 android:textColor="@color/colorAccent"
-                android:textSize="45sp"
+                android:textSize="70sp"
                 app:layout_column="2"
                 app:layout_row="2" />
 
         </android.support.v7.widget.GridLayout>
     </android.support.constraint.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/turn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Player X, you may start!"
-                android:textColor="@color/colorPrimary"
-                android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|center"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/turn"
-                app:layout_constraintVertical_bias="0.100000024" />
-        </android.support.constraint.ConstraintLayout>
-    </LinearLayout>
 
 </LinearLayout>
