@@ -5,4 +5,4 @@ Week 2 -- Tic Tac Toe
 
 Screenshot:
 
-![Screenshot TicTacToe](doc/screenshotTicTacToe.png)
+![Screenshot TicTacToe](doc/ScreenshotTicTacToe.png)
