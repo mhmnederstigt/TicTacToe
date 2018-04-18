@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    // Initiate objects that are used throughout the game
+    // Initiate objects that are used throughout the game(game + visuals that change)
     Game game;
     Button[] tilesArray = new Button[9];
     TextView turn;
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putSerializable("previousGame", game);
     }
 
+    // Create menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // Close or reset game if buttons in menu are used
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -101,79 +103,84 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Displays the tile's state in the UI according to board
-    public void displayTile(Tile tile, Button button) {
-        switch (tile) {
+    public void displayTile(Tile what, Button where) {
+        switch (what) {
             case CROSS:
-                button.setText("X");
+                where.setText("X");
                 message.setText("");
                 break;
             case CIRCLE:
-                button.setText("O");
+                where.setText("O");
                 message.setText("");
                 break;
             case INVALID:
                 message.setText("Hey, that's not a valid move!");
                 break;
             default:
-                button.setText("");
+                where.setText("");
                 break;
         }
     }
 
-    // Displays the right new tile if tile is clicked
+    // Allow user to change board on click, update UI accordingly,
     // And display whos turn it is
     public void tileClicked(View view) {
-        // check if the user is allowed to draw (and it's not the computer's turn)
-        if (game.playerOneTurn) {
-            int id = view.getId();
-            Tile tile;
+        if (!game.gameOver) {
+            // check if the user is allowed to play (and it's not the computer's turn)
+            if (game.playerOneTurn) {
+                int id = view.getId();
+                Tile tile;
 
-            switch (id) {
-                case R.id.tile01:
-                    tile = game.draw(0, 0);
-                    displayTile(tile, tilesArray[0]);
-                    break;
-                case R.id.tile02:
-                    tile = game.draw(0, 1);
-                    displayTile(tile, tilesArray[1]);
-                    break;
-                case R.id.tile03:
-                    tile = game.draw(0, 2);
-                    displayTile(tile, tilesArray[2]);
-                    break;
-                case R.id.tile04:
-                    tile = game.draw(1, 0);
-                    displayTile(tile, tilesArray[3]);
-                    break;
-                case R.id.tile05:
-                    tile = game.draw(1, 1);
-                    displayTile(tile, tilesArray[4]);
-                    break;
-                case R.id.tile06:
-                    tile = game.draw(1, 2);
-                    displayTile(tile, tilesArray[5]);
-                    break;
-                case R.id.tile07:
-                    tile = game.draw(2, 0);
-                    displayTile(tile, tilesArray[6]);
-                    break;
-                case R.id.tile08:
-                    tile = game.draw(2, 1);
-                    displayTile(tile, tilesArray[7]);
-                    break;
-                case R.id.tile09:
-                    tile = game.draw(2, 2);
-                    displayTile(tile, tilesArray[8]);
-                    break;
-                // what to do here?
-                default:
-                    tile = Tile.INVALID;
-                    break;
+                switch (id) {
+                    case R.id.tile01:
+                        tile = game.draw(0, 0);
+                        displayTile(tile, tilesArray[0]);
+                        break;
+                    case R.id.tile02:
+                        tile = game.draw(0, 1);
+                        displayTile(tile, tilesArray[1]);
+                        break;
+                    case R.id.tile03:
+                        tile = game.draw(0, 2);
+                        displayTile(tile, tilesArray[2]);
+                        break;
+                    case R.id.tile04:
+                        tile = game.draw(1, 0);
+                        displayTile(tile, tilesArray[3]);
+                        break;
+                    case R.id.tile05:
+                        tile = game.draw(1, 1);
+                        displayTile(tile, tilesArray[4]);
+                        break;
+                    case R.id.tile06:
+                        tile = game.draw(1, 2);
+                        displayTile(tile, tilesArray[5]);
+                        break;
+                    case R.id.tile07:
+                        tile = game.draw(2, 0);
+                        displayTile(tile, tilesArray[6]);
+                        break;
+                    case R.id.tile08:
+                        tile = game.draw(2, 1);
+                        displayTile(tile, tilesArray[7]);
+                        break;
+                    case R.id.tile09:
+                        tile = game.draw(2, 2);
+                        displayTile(tile, tilesArray[8]);
+                        break;
+                    default:
+                        tile = Tile.INVALID;
+                        break;
+                }
 
+                if (game.gameOver) {
+                    message.setText("End of the game");
+                }
             }
-
-            // after user played, computer plays
-            if (game.playerOneTurn == false) {
+        }
+            // after user played (a valid tile), computer plays
+        if (!game.gameOver){
+            if (!game.playerOneTurn) {
                 turn.setText("Computer plays");
 
                 //delay here??
@@ -181,59 +188,19 @@ public class MainActivity extends AppCompatActivity {
                 //Retrieve a random move
                 int[] set = game.randMove();
                 //Draw the random move on the board
-                tile = game.draw(set[0], set[1]);
+                Tile tile = game.draw(set[0], set[1]);
+                //Display the random move in the UI;
+                displayTile(tile, tilesArray[set[2]]);
 
-                //Draw the move in the UI
-
-                // convert column/row identification to number
-                int arrayNumber = 0;
-
-                if (set[0] == 0){
-                    if (set[1] == 0){
-                        arrayNumber = 0;
-                    }
-                    else if (set[1] == 1){
-                        arrayNumber = 1;
-                    }
-                    else if (set[1] == 2){
-                        arrayNumber = 2;
-                    }
+            //Check state of the game
+                if (game.gameOver){
+                    message.setText("End of the game");
                 }
-                else if (set[0] == 1){
-                    if (set[1] == 0){
-                        arrayNumber = 3;
-                    }
-                    else if (set[1] == 1){
-                        arrayNumber = 4;
-                    }
-                    else if (set[1] == 2){
-                        arrayNumber = 5;
-                    }
+                else {
+                    turn.setText("It's your turn!");
                 }
-                if (set[0] == 2){
-                    if (set[1] == 0){
-                        arrayNumber = 6;
-                    }
-                    else if (set[1] == 1){
-                        arrayNumber = 7;
-                    }
-                    else if (set[1] == 2){
-                        arrayNumber = 8;
-                    }
-                }
-
-                displayTile(tile, tilesArray[arrayNumber]);
             }
-
-            //Check again whos turn it is (always user)
-            if (game.playerOneTurn) {
-                turn.setText("It's your turn!");
-            }
-            if (!game.playerOneTurn) {
-                turn.setText("Computer plays");
-            }
-
         }
-
     }
 }
+
